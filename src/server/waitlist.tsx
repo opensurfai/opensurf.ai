@@ -1,5 +1,6 @@
-import { createServerFn } from '@tanstack/react-start'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { cn } from '@/utils/utils';
+import { createServerFn } from '@tanstack/react-start';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 declare global {
   interface Window {
@@ -190,7 +191,7 @@ export function WaitlistForm() {
         aria-live="polite"
       >
         {/* Glass border + inner */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/20 via-white/40 to-white/20 opacity-90 transition-all group-hover:opacity-100" />
+        <div className={cn("absolute inset-0 rounded-full bg-gradient-to-r from-white/20 via-white/40 to-white/20 opacity-90 transition-all group-hover:opacity-100", status === 'success' && 'bg-teal-600/70 shadow-none')} />
         <div className="absolute inset-[1px] rounded-full bg-white/10 backdrop-blur-xl transition-all group-hover:bg-white/20" />
 
         {/* Invisible Turnstile widget mount point */}
@@ -203,7 +204,7 @@ export function WaitlistForm() {
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-400 font-bold text-black">
                 ✓
               </span>
-              <span className="text-sm text-emerald-300 sm:text-base">You’re on the list!</span>
+              <span className="text-sm text-white sm:text-base">You’re on the list!</span>
             </div>
           ) : (
             <div className="vt-waitlist-content flex items-center gap-3 px-1">
@@ -245,7 +246,7 @@ export function WaitlistForm() {
 
       {/* Error below glass container */}
       {status !== 'success' && error && (
-        <div className="vt-waitlist-error mt-2 text-center text-sm text-rose-300">{error}</div>
+        <div className="vt-waitlist-error mt-2 text-center text-sm text-rose-100 backdrop-blur-sm bg-rose-600/80 px-4 py-0.5 rounded-full drop-shadow-sm">{error}</div>
       )}
     </div>
   )

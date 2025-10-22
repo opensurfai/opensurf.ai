@@ -1,6 +1,6 @@
 import { WaterSimulation } from "@/water/react";
 import { ClientOnly } from "@tanstack/react-router";
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, useRef } from "react";
 import {
   BlueskyIcon,
   BrowserIcon,
@@ -9,15 +9,13 @@ import {
   LinkedInIcon,
   MCPIcon,
   WavesIcon,
-  WavesLadderIcon,
   XTwitterIcon,
 } from "../icons";
-import logoColor from "../logo-white.svg";
+import logo from "../logo.svg";
 import { WaitlistForm } from "../server/waitlist";
 import { cn } from "../utils/utils";
 
 export function HomePage() {
-  const [hideContents, setHideContents] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   return (
     <div className="relative flex flex-col items-center text-white">
@@ -25,34 +23,25 @@ export function HomePage() {
         <WaterSimulation />
       </ClientOnly>
 
-      {hideContents && (
-        <div
-          className={cn(
-            "fixed bottom-12 z-30 mx-auto rounded-full bg-white/10 px-12 py-4 text-lg shadow-xl backdrop-blur-xl transition-all duration-300 hover:bg-white/20 hover:shadow-2xl"
-          )}
-          onClick={() => setHideContents((showContents) => !showContents)}
-        >
-          Restore content
-        </div>
-      )}
       <div
         className={cn(
-          "relative mx-auto flex w-full flex-col items-center pb-5 pt-10 transition-all md:px-12",
-          hideContents && "brightness-10 opacity-10 blur-3xl saturate-0"
+          "relative mx-auto flex w-full flex-col items-center pb-5 pt-8 transition-all md:px-12"
         )}
         ref={ref}
       >
-        <div className="md:rounded-4xl relative mx-auto flex w-full max-w-7xl flex-col items-center gap-12 overflow-hidden p-8 backdrop-blur-md md:border-2 md:border-white/10 md:bg-white/5 md:pb-24 md:pt-24 md:shadow-xl">
+        <div className="md:rounded-4xl relative mx-auto flex w-full max-w-7xl flex-col items-center gap-8 md:gap-12  overflow-hidden p-8 backdrop-blur-md md:border-2 md:border-white/10 md:bg-gradient-to-r md:from-white/5 md:via-black/5 md:to-white/5 md:pb-24 md:pt-24 md:shadow-xl">
           <img
-            src={logoColor}
-            className="z-1 pointer-events-none h-40 max-h-40 drop-shadow-xl"
+            src={logo}
+            className="z-1 pointer-events-none h-32 max-h-32 md:h-40 md:max-h-40 drop-shadow-xl"
             alt="logo"
           />
-          <div className="-mt2 flex flex-col items-center gap-0">
-            <div className="mb-4 text-4xl font-bold drop-shadow-sm">
-              Web skills for agents
+          <div className="-mt2 flex flex-col items-center gap-0 text-center md:text-left">
+            <div className="mb-4 text-4xl font-bold drop-shadow-sm  flex-row flex flex-wrap items-center justify-center gap-1 ">
+              <span>The web skills layer</span>
+              <span> </span>
+              <span>for AI agents</span>
             </div>
-            <div className="text-2xl drop-shadow-sm">
+            <div className="text-2xl drop-shadow-lg">
               Build super-agents that learn, heal and work locally with users
             </div>
           </div>
@@ -71,9 +60,9 @@ export function HomePage() {
         </div>
       </div>
 
-      <Section hidden={hideContents}>
-        <SectionContent className="-mb-5 grid w-full grid-cols-1 items-center gap-1 md:grid-cols-2 lg:grid-cols-4">
-          <FeatureCard className="md:rounded-tl-3xl">
+      <Section>
+        <SectionContent className="grid w-full grid-cols-1 items-center gap-4 md:grid-cols-2 lg:grid-cols-4 p-0">
+          <FeatureCard>
             <FeatureTitle>A living skills layer</FeatureTitle>
             <FeatureContent>
               Reusable “how-to” memories for interacting with any website. From
@@ -94,7 +83,7 @@ export function HomePage() {
               contribution is signed, versioned, and auditable.
             </FeatureContent>
           </FeatureCard>
-          <FeatureCard className="md:rounded-tr-3xl">
+          <FeatureCard>
             <FeatureTitle>Universal</FeatureTitle>
             <FeatureContent>
               Works with any LLM, framework, or orchestration stack. Agents gain
@@ -102,68 +91,67 @@ export function HomePage() {
             </FeatureContent>
           </FeatureCard>
         </SectionContent>
-        <SectionCard className="rounded-tl-none rounded-tr-none">
+      </Section>
+      <Section>
+        <SectionCard>
           <SectionTitle>
             The open skills network for the agentic web
           </SectionTitle>
           <SectionContent>
-            <div className="flex w-full flex-col gap-4">
-              <div className="flex w-full flex-col gap-8">
-                <Skills title="Everyday">
-                  <Skill>
-                    Get the status of my <SkillDomain id="spotify" />
-                    plan
-                  </Skill>
+            <div className="flex w-full flex-col gap-4 md:gap-8 ">
+              <Skills title="Everyday">
+                <Skill>
+                  Get the status of my <SkillDomain id="spotify" />
+                  plan
+                </Skill>
 
-                  <Skill>
-                    Check status of my <SkillDomain id="amazon" />
-                    delivery
-                  </Skill>
-                  <Skill>
-                    Pause my <SkillDomain id="hellofresh" name="Hello Fresh" />{" "}
-                    subscription
-                  </Skill>
-                </Skills>
-                <Skills title="Workplace">
-                  <Skill>
-                    Give <SkillTarget>@Gary</SkillTarget> admin access on
-                    <SkillDomain id="cloudflare" />
-                  </Skill>
-                  <Skill>
-                    Get a list of <SkillTarget>@Gary's</SkillTarget> open PRs on
-                    <SkillDomain id="github" />
-                  </Skill>
-                  <Skill>
-                    Remove user <SkillTarget>@Gary</SkillTarget> from{" "}
-                    <SkillDomain id="google" name="Google workspace" />
-                  </Skill>
-                </Skills>
-                <Skills title="Devops">
-                  <Skill>
-                    Rotate API keys for{" "}
-                    <SkillTarget>@Project Atlas</SkillTarget> in{" "}
-                    <SkillDomain id="aws" />
-                  </Skill>
-                  <Skill>
-                    Trigger a production deployment in{" "}
-                    <SkillDomain id="cloudflare" /> Pages
-                  </Skill>
-                  <Skill>
-                    Get the number of <SkillDomain id="sentry" /> errors in the
-                    last 24 hours for
-                    <SkillTarget>@Project Atlas</SkillTarget>
-                  </Skill>
-                </Skills>
-              </div>
+                <Skill>
+                  Check status of my <SkillDomain id="amazon" />
+                  delivery
+                </Skill>
+                <Skill>
+                  Pause my <SkillDomain id="hellofresh" name="Hello Fresh" />{" "}
+                  subscription
+                </Skill>
+              </Skills>
+              <Skills title="Workplace">
+                <Skill>
+                  Give <SkillTarget>@Gary</SkillTarget> admin access on
+                  <SkillDomain id="cloudflare" />
+                </Skill>
+                <Skill>
+                  Get a list of <SkillTarget>@Gary's</SkillTarget> open PRs on
+                  <SkillDomain id="github" />
+                </Skill>
+                <Skill>
+                  Remove user <SkillTarget>@Gary</SkillTarget> from{" "}
+                  <SkillDomain id="google" name="Google workspace" />
+                </Skill>
+              </Skills>
+              <Skills title="Devops">
+                <Skill>
+                  Rotate API keys for <SkillTarget>@Project X</SkillTarget> in{" "}
+                  <SkillDomain id="aws" />
+                </Skill>
+                <Skill>
+                  Trigger a production deployment in{" "}
+                  <SkillDomain id="cloudflare" /> Pages
+                </Skill>
+                <Skill>
+                  How many <SkillDomain id="sentry" /> errors in last 24 hours
+                  for
+                  <SkillTarget>@Project X</SkillTarget>
+                </Skill>
+              </Skills>
             </div>
           </SectionContent>
         </SectionCard>
       </Section>
-      <Section hidden={hideContents}>
+      <Section>
         <SectionCard>
           <SectionTitle>Why it's different</SectionTitle>
-          <SectionContent className="gap-6">
-            <div className="grid grid-cols-1 items-start gap-2 md:grid-cols-3">
+          <SectionContent className="gap-4 md:gap-6">
+            <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-3">
               <Card>
                 <CardTitle>⚡ Reactive and semantic</CardTitle>
                 <CardContent>
@@ -210,17 +198,17 @@ export function HomePage() {
           </SectionContent>
         </SectionCard>
       </Section>
-      <Section hidden={hideContents}>
+      <Section>
         <SectionCard>
           <SectionContent>
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-5 md:gap-8">
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-5 gap-2 md:gap-8">
               <div className="col-span-2 flex flex-row items-center gap-2 md:flex-col md:items-start md:gap-4">
-                <h2 className="text-4xl font-bold md:text-5xl">
-                  The Open Agentic Web Manifesto
+                <h2 className="text-3xl font-bold md:text-5xl flex flex-row flex-wrap items-center ">
+                  <span>The Open Agentic</span> <span>Web Manifesto</span>
                 </h2>
-                <span className="text-[80px] md:text-[100px]">✊</span>
+                <span className="text-[64px] md:text-[100px]">✊</span>
               </div>
-              <div className="col-span-3 flex flex-col gap-4">
+              <div className="col-span-3 flex flex-col gap-4 text-sm md:text-base">
                 <strong>The web was built for people, not machines.</strong>
                 <span>
                   Today it is cluttered, closed, and hostile to both users and
@@ -251,28 +239,24 @@ export function HomePage() {
           </SectionContent>
         </SectionCard>
       </Section>
-      <Section hidden={hideContents}>
-        <SectionCard className="relative py-48">
+      <Section>
+        <SectionCard className="relative py-8 md:py-24">
           <div
             className="absolute bottom-0 left-0 right-0 top-0 bg-center bg-repeat opacity-50"
             style={{ backgroundImage: "url(/nodes.svg)" }}
           ></div>
           <SectionTitle>How it works</SectionTitle>
-          <SectionContent className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="flex flex-col items-start gap-4">
-              <ol className="flex list-inside list-decimal flex-col gap-4">
-                <li>Connect your agent through the OpenSurf API or SDK.</li>
-                <li>
-                  Query the open skills memory for a task — search, fill,
-                  purchase, extract.
-                </li>
-                <li>
-                  Execute safely inside a local or hosted browser sandbox.
-                </li>
-                <li>Contribute improvements back to the layer.</li>
-              </ol>
-              <strong>The network learns, heals, and grows.</strong>
-            </div>
+
+          <SectionContent className="grid w-full grid-cols-1 gap-x-12 md:grid-cols-2 items-stretch">
+            <ol className="flex list-inside list-decimal flex-col gap-6 bg-gradient-to-br from-black/25 to-black/25 via-black/15 backdrop-blur-xl border-white/20 border-1 p-6 md:p-8 font-mono text-sm rounded-xl shadow-md">
+              <li>Connect your agent through the OpenSurf API or SDK.</li>
+              <li>
+                Query the open skills memory for a task — search, fill,
+                purchase, extract.
+              </li>
+              <li>Execute safely inside a local or hosted browser sandbox.</li>
+              <li>Contribute improvements back to the layer.</li>
+            </ol>
             <div className="flex flex-col gap-2">
               <HowCard icon={<ChromeIcon />} className="bg-sky-400/15">
                 <CardTitle>Chrome extension</CardTitle>
@@ -290,12 +274,13 @@ export function HomePage() {
               </HowCard>
             </div>
           </SectionContent>
+          <div className="text-center text-xl">The open skills layer learns, heals, and grows.</div>
         </SectionCard>
       </Section>
-      <Section hidden={hideContents}>
+      <Section>
         <SectionCard>
           <SectionTitle>About us</SectionTitle>
-          <SectionContent className="flex w-full flex-row flex-wrap items-center justify-center gap-8">
+          <SectionContent className="flex w-full flex-row flex-wrap items-center justify-center gap-8 ">
             <img
               src="/dom_and_dave.png"
               alt="Dom and Dave"
@@ -314,28 +299,28 @@ export function HomePage() {
                 designers to make it real.
               </p>
               <strong>
-                If this vision speaks to you, reach out — we'd love to hear from
+                If this vision speaks to you, <a href="mailto:gday@opensurf.ai" className="underline underline-offset-4 text-white/80 hover:text-white">reach out</a> — we'd love to hear from
                 you.
               </strong>
             </div>
           </SectionContent>
         </SectionCard>
       </Section>
-      <Section hidden={hideContents}>
+      <Section>
         <SectionCard>
           <SectionContent>
             <div className="flex flex-col items-center gap-8">
-              <div className="text-2xl font-semibold">
-                Ready to drop in? OpenSurf is coming soon.
+              <div className="text-2xl font-semibold flex flex-row flex-wrap items-center justify-center gap-x-2">
+                <span>Ready to drop in?</span> <span>OpenSurf is coming soon.</span>
               </div>
               <WaitlistForm />
             </div>
           </SectionContent>
         </SectionCard>
       </Section>
-      <Section className="py-0" hidden={hideContents}>
+      <Section className="py-12">
         <SectionCard className="rounded-xl border-none bg-transparent pb-2 pt-0 shadow-none backdrop-blur-none group-hover:shadow-none">
-          <div className="flex w-full flex-col items-center justify-between gap-2 opacity-75 md:flex-row md:gap-4">
+          <div className="flex w-full flex-col items-center justify-between gap-2 opacity-75 md:flex-row md:gap-4 text-sm gap-y-6">
             <a
               href="https://estiistudios.com"
               target="_blank"
@@ -343,25 +328,13 @@ export function HomePage() {
             >
               © 2025 Estii Co
             </a>
-
-            <div
-              onClick={() => setHideContents((showContents) => !showContents)}
-              className="[&_svg]:text-white-500/100 w-54 flex cursor-pointer flex-row items-center gap-2 [&_svg]:size-5"
-            >
-              <WavesIcon />
-              <span className="text-nowrap hover:underline">
-                {!hideContents
-                  ? "Relax (Hide contents)"
-                  : "Resume (Show contents)"}
-              </span>
-            </div>
             <div
               onClick={() =>
                 ref.current?.scrollIntoView({ behavior: "smooth" })
               }
               className="[&_svg]:text-white-500/100 flex cursor-pointer flex-row items-center gap-2 [&_svg]:size-5"
             >
-              <WavesLadderIcon />
+              <WavesIcon />
               <span className="hover:underline">Resurface (Back to top)</span>
             </div>
             <SocialIcons />
@@ -423,7 +396,7 @@ function FeatureCard({
   return (
     <div
       className={cn(
-        "r flex h-full w-full flex-col items-center gap-2 overflow-hidden text-balance border-2 border-white/10 bg-white/5 p-8 py-10 shadow-sm backdrop-blur-xl",
+        "r flex h-full w-full flex-col rounded-3xl items-center gap-2 overflow-hidden text-balance border-2 border-white/10 bg-white/5 p-8 md:py-10 shadow-sm backdrop-blur-xl",
         className
       )}
     >
@@ -433,7 +406,11 @@ function FeatureCard({
 }
 
 function SectionTitle({ children }: { children: ReactNode }) {
-  return <div className="text-2xl font-bold xl:text-3xl">{children}</div>;
+  return (
+    <div className="text-2xl font-bold xl:text-3xl p-4 text-center md:p-0 md:text-left">
+      {children}
+    </div>
+  );
 }
 
 function SectionContent({
@@ -446,7 +423,7 @@ function SectionContent({
   return (
     <div
       className={cn(
-        "mx-auto flex max-w-7xl flex-col items-center gap-6",
+        "mx-auto flex max-w-7xl flex-col items-center gap-6 p-4 md:p-0",
         className
       )}
     >
@@ -465,7 +442,7 @@ function SectionCard({
   return (
     <div
       className={cn(
-        "mx-auto flex w-full max-w-7xl flex-col items-center gap-10 overflow-hidden rounded-3xl border-2 border-white/10 bg-white/5 p-2 shadow-sm backdrop-blur-xl transition-all group-hover:shadow-xl md:p-12 md:py-24",
+        "mx-auto flex w-full max-w-7xl flex-col items-center gap-6 md:gap-10 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-r from-white/5 via-black/5 to-white/5  p-4 pb-8 shadow-sm backdrop-blur-xl transition-all group-hover:shadow-xl md:p-12 md:py-24",
         className
       )}
     >
@@ -477,18 +454,15 @@ function SectionCard({
 function Section({
   children,
   className,
-  hidden,
 }: {
   children: ReactNode;
   className?: string;
-  hidden?: boolean;
 }) {
   return (
     <div
       className={cn(
         "z-1 group relative flex h-fit w-full flex-col items-center gap-6 bg-gradient-to-b p-4 transition-all md:p-8 md:py-4",
-        className,
-        hidden && "opacity-0"
+        className
       )}
     >
       {children}
@@ -504,7 +478,7 @@ function Card({
   className?: string;
 }) {
   return (
-    <div className={cn("flex flex-col gap-2 rounded-lg p-4", className)}>
+    <div className={cn("flex flex-col gap-2 rounded-lg p-0 ", className)}>
       {children}
     </div>
   );
@@ -540,7 +514,7 @@ function Skills({
   children: ReactNode;
 }) {
   return (
-    <div className="flex w-full flex-col gap-4 md:grid md:grid-cols-5 md:gap-8">
+    <div className="flex w-full flex-col gap-4 md:grid md:grid-cols-5  md:gap-8 ">
       <SkillsTitle>{title}</SkillsTitle>
       <SkillsContent>{children}</SkillsContent>
     </div>
@@ -549,7 +523,7 @@ function Skills({
 
 function SkillsTitle({ children }: { children: ReactNode }) {
   return (
-    <div className="col-span-1 text-lg font-bold md:mt-4 md:text-right">
+    <div className="col-span-1 md:text-lg font-bold md:mt-4 md:text-right">
       {children}
     </div>
   );
@@ -557,7 +531,7 @@ function SkillsTitle({ children }: { children: ReactNode }) {
 
 function SkillsContent({ children }: { children: ReactNode }) {
   return (
-    <div className="col-span-4 flex w-full flex-row flex-wrap items-center gap-2">
+    <div className="col-span-4 flex w-full flex-row flex-wrap items-center gap-2 overflow-hidden">
       {children}
     </div>
   );
@@ -565,7 +539,7 @@ function SkillsContent({ children }: { children: ReactNode }) {
 
 function Skill({ children }: { children: ReactNode }) {
   return (
-    <div className="border-1 flex w-max flex-row items-center gap-2 rounded-xl border-dashed border-white/50 bg-black/5 p-4 text-sm">
+    <div className="border-1 flex flex-row flex-wrap items-center gap-2 gap-y-1 rounded-xl border-dashed border-white/50 bg-gradient-to-br from-black/15 via-black/10 to-black/15 p-2 px-4 md:py-3  text-xs md:text-xs font-mono">
       {children}
     </div>
   );

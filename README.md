@@ -10,7 +10,7 @@ The website also has a completely unecessary water simulation on it, because @dp
 
 ## Running
 
-Run `bun dev` (you might have to setup alchemy? not sure)
+Run `bun dev` (you might have to setup alchemy and/or .env variabiles? not sure)
 
 Add `?debug` for simulation gui and expose parameters in `params.ts`
 
