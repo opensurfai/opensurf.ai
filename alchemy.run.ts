@@ -1,0 +1,26 @@
+import alchemy from "alchemy";
+import { TanStackStart } from "alchemy/cloudflare";
+
+const app = await alchemy("opensurf", { stage: "prod" });
+
+export const website = await TanStackStart("website", {
+  name: `${app.name}-${app.stage}-website`,
+  bindings: {
+    TURNSTILE_SECRET_KEY: alchemy.secret(process.env.TURNSTILE_SECRET_KEY),
+    VITE_TURNSTILE_SITE_KEY: alchemy.secret(process.env.TURNSTILE_SITE_KEY),
+    RESEND_API_KEY: alchemy.secret(process.env.RESEND_API_KEY),
+    RESEND_AUDIENCE_ID: alchemy.secret(process.env.RESEND_AUDIENCE_ID),
+  },
+  domains: [
+    {
+      domainName: "opensurf.ai",
+      adopt: true,
+    },
+  ],
+  adopt: true,
+  dev: {
+    command: "vite dev --port 5005 --strictPort --host 127.0.0.1",
+  },
+});
+
+await app.finalize();

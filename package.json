@@ -1,0 +1,49 @@
+{
+  "name": "@opensurf/landing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "alchemy deploy",
+    "destroy": "alchemy destroy",
+    "dev": "alchemy dev",
+    "start": "node .output/server/index.mjs",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@cloudflare/vite-plugin": "^1.13.12",
+    "@tailwindcss/vite": "^4.0.6",
+    "@tanstack/react-devtools": "^0.2.2",
+    "@tanstack/react-router": "^1.132.0",
+    "@tanstack/react-router-devtools": "^1.132.0",
+    "@tanstack/react-router-ssr-query": "^1.131.7",
+    "@tanstack/react-start": "^1.132.0",
+    "@tanstack/router-plugin": "^1.132.0",
+    "@types/dat.gui": "^0.7.13",
+    "clsx": "^2.1.1",
+    "dat.gui": "^0.7.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^6.1.2",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.0.6",
+    "three": "^0.180.0",
+    "tweakpane": "^4.0.5",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251008.0",
+    "@tweakpane/core": "^2.0.5",
+    "@types/cloudflare-turnstile": "^0.2.2",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@types/three": "^0.180.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "alchemy": "^0.76.1",
+    "playwright": "^1.56.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
+    "wrangler": "^4.42.2"
+  }
+}

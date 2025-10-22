@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water Sim Dev</title>
+    <style>
+      body {
+        background: black;
+        margin: 0;
+      }
+      #sim-root {
+        position: fixed;
+        inset: 0;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        border: 1px solid gray;
+        height: 500px;
+        border-radius: 16px;
+        margin: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sim-root"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <script type="module" src="./src/water/standalone.ts"></script>
+  </body>
+</html>

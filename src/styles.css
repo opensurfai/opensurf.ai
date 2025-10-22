@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+body {
+  @apply m-0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* View Transition names and refinements for the waitlist form */
+.vt-waitlist {
+  view-transition-name: waitlist-shell;
+}
+
+.vt-waitlist-content {
+  view-transition-name: waitlist-content;
+}
+
+.vt-waitlist-error {
+  view-transition-name: waitlist-error;
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+::view-transition-old(waitlist-shell) {
+  animation: vt-fade-out 240ms ease;
+}
+
+::view-transition-new(waitlist-shell) {
+  animation: vt-fade-in 360ms cubic-bezier(0.18, 0.9, 0.1, 1.05);
+}
+
+::view-transition-old(waitlist-content) {
+  animation: vt-fade-out 240ms ease;
+}
+
+::view-transition-new(waitlist-content) {
+  /* pure fade for completion message */
+  animation: vt-fade-in 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-new(waitlist-error) {
+  animation: vt-fade-in 300ms ease;
+}
+
+@keyframes gradient-border-animation {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-border {
+  animation: gradient-border-animation 6s ease-in-out infinite;
+}
+
+/* Shimmer sweep overlay on the glass during state changes */
+.waitlist-glass::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background: linear-gradient(
+    75deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.36) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: translateX(-120%) skewX(-12deg);
+  filter: blur(8px);
+  opacity: 0;
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.95;
+  }
+  55% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(120%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+/* Trigger shimmer when state changes away from idle, and on success */
+.waitlist-glass[data-state='loading']::after,
+.waitlist-glass[data-state='error']::after,
+.waitlist-glass[data-state='success']::after {
+  animation: shimmer-sweep 950ms cubic-bezier(0.18, 0.9, 0.1, 1) 60ms;
+}
