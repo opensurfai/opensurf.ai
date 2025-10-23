@@ -22,14 +22,14 @@ export function HomePage() {
       <ClientOnly>
         <WaterSimulation />
       </ClientOnly>
-
+    
       <div
         className={cn(
-          "relative mx-auto flex w-full flex-col items-center pb-5 pt-8 transition-all md:px-12"
+          "relative mx-auto flex w-full max-w-7xl flex-col items-center pb-5 pt-8 transition-all md:px-8"
         )}
         ref={ref}
       >
-        <div className="md:rounded-4xl relative mx-auto flex w-full max-w-7xl flex-col items-center gap-8 md:gap-12  overflow-hidden p-8 backdrop-blur-md md:border-2 md:border-white/10 md:bg-gradient-to-r md:from-white/5 md:via-black/5 md:to-white/5 md:pb-24 md:pt-24 md:shadow-xl">
+        <div className="md:rounded-4xl relative flex w-full flex-col items-center gap-8 md:gap-12  overflow-hidden p-8 backdrop-blur-md md:border-2 md:border-white/10 md:bg-gradient-to-r md:from-white/5 md:via-black/5 md:to-white/5 md:pb-24 md:pt-24 md:shadow-xl">
           <img
             src={logo}
             className="z-1 pointer-events-none h-32 max-h-32 md:h-40 md:max-h-40 drop-shadow-xl"
@@ -49,7 +49,7 @@ export function HomePage() {
             <div className="text-lg drop-shadow-sm">
               Ready to drop in? <strong>OpenSurf is coming soon.</strong>
             </div>
-            <div className="group relative flex w-full flex-col items-center gap-4">
+            <div className="group relative flex w-full flex-col items-center gap-4 pt-4">
               <WaitlistForm />
 
               <div className="absolute -bottom-6 -right-28 z-40 flex w-fit flex-row items-center gap-2 rounded-full rounded-tl-none bg-gray-700 p-2 px-4 pl-2 text-sm opacity-0 drop-shadow-xl backdrop-blur-lg transition-all duration-300 group-hover:opacity-100">
@@ -95,7 +95,7 @@ export function HomePage() {
       <Section>
         <SectionCard>
           <SectionTitle>
-            The open skills network for the agentic web
+            <span>The open skills network</span><span> for the agentic web</span>
           </SectionTitle>
           <SectionContent>
             <div className="flex w-full flex-col gap-4 md:gap-8 ">
@@ -274,7 +274,9 @@ export function HomePage() {
               </HowCard>
             </div>
           </SectionContent>
-          <div className="text-center text-xl">The open skills layer learns, heals, and grows.</div>
+          <div className="text-center text-xl">
+            The open skills layer learns, heals, and grows.
+          </div>
         </SectionCard>
       </Section>
       <Section>
@@ -299,8 +301,14 @@ export function HomePage() {
                 designers to make it real.
               </p>
               <strong>
-                If this vision speaks to you, <a href="mailto:gday@opensurf.ai" className="underline underline-offset-4 text-white/80 hover:text-white">reach out</a> — we'd love to hear from
-                you.
+                If this vision speaks to you,{" "}
+                <a
+                  href="mailto:team@opensurf.ai"
+                  className="underline underline-offset-4 text-white/80 hover:text-white"
+                >
+                  reach out
+                </a>{" "}
+                — we'd love to hear from you.
               </strong>
             </div>
           </SectionContent>
@@ -311,9 +319,10 @@ export function HomePage() {
           <SectionContent>
             <div className="flex flex-col items-center gap-8">
               <div className="text-2xl font-semibold flex flex-row flex-wrap items-center justify-center gap-x-2">
-                <span>Ready to drop in?</span> <span>OpenSurf is coming soon.</span>
+                <span>Ready to drop in?</span>{" "}
+                <span>OpenSurf is coming soon.</span>
               </div>
-              <WaitlistForm />
+              <WaitlistForm compact />
             </div>
           </SectionContent>
         </SectionCard>
@@ -396,7 +405,7 @@ function FeatureCard({
   return (
     <div
       className={cn(
-        "r flex h-full w-full flex-col rounded-3xl items-center gap-2 overflow-hidden text-balance border-2 border-white/10 bg-white/5 p-8 md:py-10 shadow-sm backdrop-blur-xl",
+        "flex h-full w-full flex-col rounded-3xl items-center gap-2 overflow-hidden text-balance border-2 border-white/10 bg-white/5 p-8 md:py-10 shadow-sm backdrop-blur-xl",
         className
       )}
     >
@@ -407,7 +416,7 @@ function FeatureCard({
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <div className="text-2xl font-bold xl:text-3xl p-4 text-center md:p-0 md:text-left">
+    <div className="text-2xl font-bold xl:text-3xl flex flex-row flex-wrap items-center justify-center gap-1 p-4 text-center md:p-0 md:text-left">
       {children}
     </div>
   );
@@ -423,7 +432,7 @@ function SectionContent({
   return (
     <div
       className={cn(
-        "mx-auto flex max-w-7xl flex-col items-center gap-6 p-4 md:p-0",
+        "mx-auto flex w-full flex-col items-center gap-6 p-4 md:p-0",
         className
       )}
     >
@@ -442,7 +451,7 @@ function SectionCard({
   return (
     <div
       className={cn(
-        "mx-auto flex w-full max-w-7xl flex-col items-center gap-6 md:gap-10 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-r from-white/5 via-black/5 to-white/5  p-4 pb-8 shadow-sm backdrop-blur-xl transition-all group-hover:shadow-xl md:p-12 md:py-24",
+        "mx-auto flex w-full flex-col items-center gap-6 md:gap-10 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-r from-white/5 via-black/5 to-white/5  p-4 pb-8 shadow-sm backdrop-blur-xl transition-all group-hover:shadow-xl md:p-12 md:py-24",
         className
       )}
     >
@@ -461,7 +470,7 @@ function Section({
   return (
     <div
       className={cn(
-        "z-1 group relative flex h-fit w-full flex-col items-center gap-6 bg-gradient-to-b p-4 transition-all md:p-8 md:py-4",
+        "z-1 group relative flex h-fit w-full max-w-7xl flex-col items-center gap-6 bg-gradient-to-b p-4 transition-all md:p-8 md:py-4",
         className
       )}
     >

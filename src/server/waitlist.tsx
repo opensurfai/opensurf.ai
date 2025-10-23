@@ -74,7 +74,7 @@ function startViewTransition(update: () => void) {
   return { finished: Promise.resolve() } as const
 }
 
-export function WaitlistForm() {
+export function WaitlistForm({compact = false}: {compact?: boolean}) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [error, setError] = useState<string>('')
@@ -207,14 +207,14 @@ export function WaitlistForm() {
               <span className="text-sm text-white sm:text-base">You’re on the list!</span>
             </div>
           ) : (
-            <div className="vt-waitlist-content flex items-center gap-3 px-1">
+            <div className="vt-waitlist-content flex items-center gap-2 px-1">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="user@domain.com"
                 aria-label="Email address"
-                className="min-w-0 flex-1 rounded-full bg-transparent px-4 py-3 text-black/95 placeholder-black/40 outline-none"
+                className="min-w-0 flex-1 rounded-full bg-transparent md:px-3 px-1 py-3 text-black/95 placeholder-black/40 outline-none md:text-base"
                 disabled={status === 'loading'}
                 required
               />
@@ -227,11 +227,11 @@ export function WaitlistForm() {
               >
                 <span
                   className={
-                    'inline-flex items-center gap-2 transition-opacity duration-200 ' +
+                    'inline-flex items-center gap-1 transition-opacity duration-200 ' +
                     (status === 'loading' ? 'opacity-0' : 'opacity-100')
                   }
                 >
-                  Join the lineup 🤙
+                  Join <span className={cn(compact && 'hidden md:inline')}>{` the `}</span>lineup 🤙
                 </span>
                 {status === 'loading' && (
                   <span className="absolute inset-0 flex items-center justify-center">
