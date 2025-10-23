@@ -191,7 +191,7 @@ export function WaitlistForm({compact = false}: {compact?: boolean}) {
         aria-live="polite"
       >
         {/* Glass border + inner */}
-        <div className={cn("absolute inset-0 rounded-full bg-gradient-to-r from-white/20 via-white/40 to-white/20 opacity-90 transition-all group-hover:opacity-100", status === 'success' && 'bg-teal-600/70 shadow-none')} />
+        <div className={cn("absolute inset-0 rounded-full bg-gradient-to-r from-white/40 via-white/30 to-white/40 opacity-90 transition-all group-hover:opacity-100", status === 'success' && 'bg-teal-600/70 shadow-none')} />
         <div className="absolute inset-[1px] rounded-full bg-white/10 backdrop-blur-xl transition-all group-hover:bg-white/20" />
 
         {/* Invisible Turnstile widget mount point */}
@@ -223,7 +223,7 @@ export function WaitlistForm({compact = false}: {compact?: boolean}) {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="relative isolate shrink-0 rounded-full bg-white px-5 py-2 font-medium text-black shadow-[0_0_0_0_rgba(255,255,255,0.35)] transition-all duration-300 hover:shadow-[0_0_28px_2px_rgba(255,255,255,0.25)] disabled:cursor-not-allowed disabled:opacity-70"
+                className="relative isolate shrink-0 rounded-full bg-white px-4 py-2 font-medium text-black shadow-[0_0_0_0_rgba(255,255,255,0.35)] transition-all duration-300 hover:shadow-[0_0_28px_2px_rgba(255,255,255,0.25)] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 <span
                   className={

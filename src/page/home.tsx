@@ -9,7 +9,7 @@ import {
   LinkedInIcon,
   MCPIcon,
   WavesIcon,
-  XTwitterIcon,
+  XTwitterIcon
 } from "../icons";
 import logo from "../logo.svg";
 import { WaitlistForm } from "../server/waitlist";
@@ -29,24 +29,24 @@ export function HomePage() {
         )}
         ref={ref}
       >
-        <div className="md:rounded-4xl relative flex w-full flex-col items-center gap-8 md:gap-12  overflow-hidden p-8 backdrop-blur-md md:border-2 md:border-white/10 md:bg-gradient-to-r md:from-white/5 md:via-black/5 md:to-white/5 md:pb-24 md:pt-24 md:shadow-xl">
+        <div className="md:rounded-4xl md:my-12 relative flex w-full flex-col items-center gap-8 md:gap-12  overflow-hidden p-8 backdrop-blur-md md:border-2 md:border-white/10 md:bg-gradient-to-r md:from-white/10 md:via-black/10 md:to-white/10 md:pb-16 md:pt-16 md:shadow-xl">
           <img
             src={logo}
             className="z-1 pointer-events-none h-32 max-h-32 md:h-40 md:max-h-40 drop-shadow-xl"
             alt="logo"
           />
-          <div className="-mt2 flex flex-col items-center gap-0 text-center md:text-left">
-            <div className="mb-4 text-4xl font-bold drop-shadow-sm  flex-row flex flex-wrap items-center justify-center gap-1 ">
+          <div className="-mt-2 flex flex-col items-center gap-0 text-center md:text-left">
+            <div className="mb-4 text-4xl font-bold text-shadow-sm  flex-row flex flex-wrap items-center justify-center gap-1 ">
               <span>The web skills layer</span>
               <span> </span>
-              <span>for AI agents</span>
+              <span>for AI agents </span>
             </div>
-            <div className="text-2xl drop-shadow-lg">
-              Build super-agents that learn, heal and work locally with users
-            </div>
+            <div className="text-2xl text-shadow-lg text-center">
+            
+            Local agents. Global working memory. <br/>Browser automation at <span className="font-medium italic ">superhuman</span > speed.            </div>
           </div>
           <div className="flex flex-col items-center gap-4">
-            <div className="text-lg drop-shadow-sm">
+            <div className="text-xl text-shadow-sm">
               Ready to drop in? <strong>OpenSurf is coming soon.</strong>
             </div>
             <div className="group relative flex w-full flex-col items-center gap-4 pt-4">
@@ -95,7 +95,7 @@ export function HomePage() {
       <Section>
         <SectionCard>
           <SectionTitle>
-            <span>The open skills network</span><span> for the agentic web</span>
+            <span>An open skills network</span><span> for the agentic web</span>
           </SectionTitle>
           <SectionContent>
             <div className="flex w-full flex-col gap-4 md:gap-8 ">
@@ -282,14 +282,18 @@ export function HomePage() {
       <Section>
         <SectionCard>
           <SectionTitle>About us</SectionTitle>
-          <SectionContent className="flex w-full flex-row flex-wrap items-center justify-center gap-8 ">
+          <SectionContent className="flex w-full flex-col md:flex-row items-center justify-center gap-8 ">
+            <div className="min-h-48 min-w-48">
             <img
               src="/dom_and_dave.png"
               alt="Dom and Dave"
-              className="h-48 rounded-full"
+              className="max-h-48 rounded-full"
             />
 
-            <div className="flex max-w-2xl flex-col items-start gap-2">
+<div className="text-xs text-center text-white/80 bg-black/80 px-2 py-1 -mt-6 z-30  backdrop-blur-3xl rounded-md">* Two posers with no real surfing abilities</div>
+            </div>
+
+            <div className="flex w-full max-w-2xl flex-col items-start gap-2">
               <p>
                 We're Dom and Dave — two Aussies who've spent the last nine
                 months building OpenSurf.
@@ -320,7 +324,7 @@ export function HomePage() {
             <div className="flex flex-col items-center gap-8">
               <div className="text-2xl font-semibold flex flex-row flex-wrap items-center justify-center gap-x-2">
                 <span>Ready to drop in?</span>{" "}
-                <span>OpenSurf is coming soon.</span>
+                <span><span className="font-semibold ">OpenSurf</span> is coming soon.</span>
               </div>
               <WaitlistForm compact />
             </div>
@@ -384,7 +388,7 @@ function SocialLink({ children, href }: { children: ReactNode; href: string }) {
   );
 }
 function FeatureTitle({ children }: { children: ReactNode }) {
-  return <div className="text-lg font-bold lg:w-full">{children}</div>;
+  return <div className="text-lg font-bold lg:w-full leading-tight">{children}</div>;
 }
 
 function FeatureContent({ children }: { children: ReactNode }) {
