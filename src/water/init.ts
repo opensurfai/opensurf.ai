@@ -13,7 +13,11 @@ import { ScrollController } from "./scroll";
 import { setupUI } from "./ui";
 
 export function init(el: HTMLElement) {
-  const debug = false; //window.location.search.includes("debug");
+  const debug =
+    (typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).has("debug")) ??
+    false;
+
   // Scene dimensions
   const CAMERA_DISTANCE = 0.3; // Distance from camera to front edge of planes
   const FOV = 60; // Field of view in degrees

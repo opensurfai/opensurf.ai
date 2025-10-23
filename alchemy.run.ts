@@ -19,7 +19,7 @@ export const website = await TanStackStart("website", {
   ],
   adopt: true,
   dev: {
-    command: "vite dev --port 5005 --strictPort --host 127.0.0.1",
+    command: "vite dev --host localhost --port 5005",
   },
 });
 
