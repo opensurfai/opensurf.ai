@@ -9,7 +9,7 @@ import {
   LinkedInIcon,
   MCPIcon,
   WavesIcon,
-  XTwitterIcon
+  XTwitterIcon,
 } from "../icons";
 import logo from "../logo.svg";
 import { WaitlistForm } from "../server/waitlist";
@@ -22,7 +22,7 @@ export function HomePage() {
       <ClientOnly>
         <WaterSimulation />
       </ClientOnly>
-    
+
       <div
         className={cn(
           "relative mx-auto flex w-full max-w-7xl flex-col items-center pb-5 pt-8 transition-all md:px-8"
@@ -42,8 +42,9 @@ export function HomePage() {
               <span>for AI agents </span>
             </div>
             <div className="text-2xl text-shadow-lg text-center">
-            
-            Local agents. Global working memory. <br/>Browser automation at <span className="font-medium italic ">superhuman</span > speed.            </div>
+              Local agents with global working memory. <br />
+              Browser automation at superhuman speed.
+            </div>
           </div>
           <div className="flex flex-col items-center gap-4">
             <div className="text-xl text-shadow-sm">
@@ -95,7 +96,8 @@ export function HomePage() {
       <Section>
         <SectionCard>
           <SectionTitle>
-            <span>An open skills network</span><span> for the agentic web</span>
+            <span>An open skills network</span>
+            <span> for the agentic web</span>
           </SectionTitle>
           <SectionContent>
             <div className="flex w-full flex-col gap-4 md:gap-8 ">
@@ -284,13 +286,15 @@ export function HomePage() {
           <SectionTitle>About us</SectionTitle>
           <SectionContent className="flex w-full flex-col md:flex-row items-center justify-center gap-8 ">
             <div className="min-h-48 min-w-48">
-            <img
-              src="/dom_and_dave.png"
-              alt="Dom and Dave"
-              className="max-h-48 rounded-full"
-            />
+              <img
+                src="/dom_and_dave.png"
+                alt="Dom and Dave"
+                className="max-h-48 rounded-full"
+              />
 
-<div className="text-xs text-center text-white/80 bg-black/80 px-2 py-1 -mt-6 z-30  backdrop-blur-3xl rounded-md">* Two posers with no real surfing abilities</div>
+              <div className="text-xs text-center text-white/80 bg-black/80 px-2 py-1 -mt-6 z-30  backdrop-blur-3xl rounded-md">
+                * Two posers with no real surfing abilities
+              </div>
             </div>
 
             <div className="flex w-full max-w-2xl flex-col items-start gap-2">
@@ -324,7 +328,10 @@ export function HomePage() {
             <div className="flex flex-col items-center gap-8">
               <div className="text-2xl font-semibold flex flex-row flex-wrap items-center justify-center gap-x-2">
                 <span>Ready to drop in?</span>{" "}
-                <span><span className="font-semibold ">OpenSurf</span> is coming soon.</span>
+                <span>
+                  <span className="font-semibold ">OpenSurf</span> is coming
+                  soon.
+                </span>
               </div>
               <WaitlistForm compact />
             </div>
@@ -339,7 +346,7 @@ export function HomePage() {
               target="_blank"
               className="hover:underline"
             >
-              © 2025 Estii Co
+              © 2025 Estii
             </a>
             <div
               onClick={() =>
@@ -388,7 +395,9 @@ function SocialLink({ children, href }: { children: ReactNode; href: string }) {
   );
 }
 function FeatureTitle({ children }: { children: ReactNode }) {
-  return <div className="text-lg font-bold lg:w-full leading-tight">{children}</div>;
+  return (
+    <div className="text-lg font-bold lg:w-full leading-tight">{children}</div>
+  );
 }
 
 function FeatureContent({ children }: { children: ReactNode }) {
