@@ -353,14 +353,55 @@ export function init(el: HTMLElement) {
 
   // Handle resize
   const handleResize = () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    waterFog.setSize(window.innerWidth, window.innerHeight);
-    planarRT.setSize(window.innerWidth, window.innerHeight);
-    mirrorRT.setSize(window.innerWidth, window.innerHeight);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-    // No skyplane
+    // Update camera and renderer sizes
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+    waterFog.setSize(width, height);
+    planarRT.setSize(width, height);
+    mirrorRT.setSize(width, height);
+
+    // Recompute plane width based on new aspect to keep foreground water filling view
+    const fovRadians = (FOV * Math.PI) / 180;
+    const rearEdgeDistance = CAMERA_DISTANCE + PLANE_DEPTH;
+    let newPlaneWidth =
+      2 * rearEdgeDistance * Math.tan(fovRadians / 2) * camera.aspect;
+    const maxWidth = PLANE_DEPTH * MAX_ASPECT_RATIO;
+    if (newPlaneWidth > maxWidth) newPlaneWidth = maxWidth;
+
+    // Scale scene elements horizontally to match new plane width
+    const widthScale = newPlaneWidth / PLANE_WIDTH;
+
+    if (water) {
+      water.scale.x *= widthScale;
+      (water.material.uniforms as any).uPlaneWidth.value = newPlaneWidth;
+    }
+
+    // Ground plane matches water extents
+    ground.scale.x *= widthScale;
+
+    // Back wall and side walls
+    backPlane.scale.x *= widthScale;
+    leftWall.position.x = -newPlaneWidth / 2;
+    rightWall.position.x = newPlaneWidth / 2;
+
+    // Background water cutout tracks foreground water size
+    if (backgroundWater) {
+      (backgroundWater.material.uniforms as any).uCutoutWidth.value =
+        newPlaneWidth;
+      (backgroundWater.material.uniforms as any).uCutoutDepth.value =
+        PLANE_DEPTH;
+    }
+
+    // Update mirror camera to new aspect
+    mirrorCamera.aspect = camera.aspect;
+    mirrorCamera.updateProjectionMatrix();
+
+    // Commit new baseline width
+    PLANE_WIDTH = newPlaneWidth;
   };
 
   window.addEventListener("resize", handleResize);
