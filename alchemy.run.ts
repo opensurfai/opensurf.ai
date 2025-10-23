@@ -1,7 +1,15 @@
 import alchemy from "alchemy";
 import { TanStackStart } from "alchemy/cloudflare";
+import { CloudflareStateStore } from "alchemy/state";
 
-const app = await alchemy("opensurf", { stage: "prod" });
+const app = await alchemy("opensurf", {
+  stage: "prod",
+  stateStore: (scope) =>
+    new CloudflareStateStore(scope, {
+      email: process.env.CLOUDFLARE_EMAIL,
+      apiToken: alchemy.secret(process.env.CLOUDFLARE_API_KEY),
+    }),
+});
 
 export const website = await TanStackStart("website", {
   name: `${app.name}-${app.stage}-website`,
