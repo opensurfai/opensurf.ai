@@ -14,8 +14,6 @@ Run `bun dev` (you might have to setup alchemy? not sure)
 
 Add `?debug` for simulation gui and expose parameters in `params.ts`
 
-Contributions (including sharks) welcome!
-
 ## What's inside
 
 - **Framework**: React 19 with **@tanstack/react-start** (SSR/SSG) and **@tanstack/react-router** (file-based routing)
@@ -68,7 +66,7 @@ Local dev runs on `http://localhost:5005` (configured in `alchemy.run.ts`).
 Client (Vite):
 
 ```bash
-# .env.local
+# .env
 VITE_TURNSTILE_SITE_KEY=pk_xxxxxxxxxxxxxxxxx
 ```
 
@@ -98,6 +96,22 @@ These are wired in `alchemy.run.ts` and consumed in `src/server/waitlist.tsx`.
 - It only runs on the client via `<ClientOnly>` in `page/home.tsx`.
 - Append `?debug` to the URL to enable stats and the parameter UI.
 
+### Hack on the simulation only
+
+If you just want to iterate on the water sim without the website/SSR stack:
+
+```bash
+bun run sim
+```
+
+What this does:
+
+- Starts a lightweight Vite server using `vite.sim.config.ts` (no Alchemy, no TanStack Start)
+- Serves `sim.html` as the entry, which imports `src/water/standalone.ts`
+- Automatically opens `http://localhost:5005/sim.html?debug` with HMR
+- Serves from the project root so assets under `public/` (e.g. `/sim/*`) work
+- No env vars required — great for fast iteration on `src/water/**`
+
 ## Tech highlights
 
 - **Tailwind v4** with the official Vite plugin
@@ -108,7 +122,7 @@ These are wired in `alchemy.run.ts` and consumed in `src/server/waitlist.tsx`.
 ## Developing locally
 
 1. Install deps: `bun install`
-2. Create `.env.local` with `VITE_TURNSTILE_SITE_KEY`
+2. Create `.env` with `VITE_TURNSTILE_SITE_KEY`
 3. Start dev server: `bun dev`
 4. Visit `http://localhost:5005` (add `?debug` to tweak the sim)
 

@@ -6,6 +6,7 @@
     "deploy": "alchemy deploy",
     "destroy": "alchemy destroy",
     "dev": "alchemy dev",
+    "sim": "vite --config vite.sim.config.ts --host localhost --port 5005",
     "start": "node .output/server/index.mjs",
     "build": "vite build",
     "serve": "vite preview"
