@@ -61,29 +61,29 @@ export function HomePage() {
       </div>
 
       <Section>
-        <SectionContent className="grid w-full grid-cols-1 items-center gap-4 md:grid-cols-2 lg:grid-cols-4 p-0">
-          <FeatureCard>
+        <SectionContent className="grid w-full grid-cols-1 items-center gap-1 md:grid-cols-2 lg:grid-cols-4 p-0">
+          <FeatureCard className="rounded-t-3xl md:rounded-t-none lg:rounded-l-3xl md:rounded-tl-3xl">
             <FeatureTitle>A living skills layer</FeatureTitle>
             <FeatureContent>
               Reusable “how-to” memories for interacting with any website. From
               booking systems to dashboards to data portals.
             </FeatureContent>
           </FeatureCard>
-          <FeatureCard>
+          <FeatureCard className="md:rounded-tr-3xl lg:rounded-tr-none">
             <FeatureTitle>Self-healing and adaptive</FeatureTitle>
             <FeatureContent>
               When a site changes, the layer updates automatically. Every
               connected agent inherits the fix instantly.
             </FeatureContent>
           </FeatureCard>
-          <FeatureCard>
+          <FeatureCard className="md:rounded-bl-3xl lg:rounded-bl-none">
             <FeatureTitle>Open and federated</FeatureTitle>
             <FeatureContent>
               Anyone can inspect, extend, or mirror the layer. Every
               contribution is signed, versioned, and auditable.
             </FeatureContent>
           </FeatureCard>
-          <FeatureCard>
+          <FeatureCard className="rounded-b-3xl md:rounded-b-none lg:rounded-r-3xl md:rounded-br-3xl">
             <FeatureTitle>Universal</FeatureTitle>
             <FeatureContent>
               Works with any LLM, framework, or orchestration stack. Agents gain
@@ -409,7 +409,7 @@ function FeatureCard({
   return (
     <div
       className={cn(
-        "flex h-full w-full flex-col rounded-3xl items-center gap-2 overflow-hidden text-balance border-2 border-white/10 bg-white/5 p-8 md:py-10 shadow-sm backdrop-blur-xl",
+        "flex h-full w-full flex-col items-center gap-2 overflow-hidden text-balance border-2 border-white/10 bg-white/5 p-8 md:py-10 md:pr-6 shadow-sm backdrop-blur-xl",
         className
       )}
     >
