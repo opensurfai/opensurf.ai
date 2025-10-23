@@ -505,7 +505,7 @@ function SectionCard({
   return (
     <div
       className={cn(
-        "mx-auto flex w-full flex-col items-center gap-6 md:gap-10 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-r from-white/5 via-black/5 to-white/5  p-4 pb-8 shadow-sm backdrop-blur-xl transition-all group-hover:shadow-xl md:p-12 md:py-24",
+        "mx-auto flex w-full flex-col items-center gap-6 md:gap-10 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-r from-white/5 via-black/5 to-white/5  p-4 md:pb-8 shadow-sm backdrop-blur-xl transition-all group-hover:shadow-xl md:p-12 md:py-24",
         className
       )}
     >
@@ -594,7 +594,7 @@ function SkillsTitle({ children }: { children: ReactNode }) {
 
 function SkillsContent({ children }: { children: ReactNode }) {
   return (
-    <div className="col-span-4 flex w-full flex-row flex-wrap items-center gap-2 overflow-hidden">
+    <div className="col-span-4 flex w-full flex-row flex-wrap items-center gap-2 ">
       {children}
     </div>
   );
@@ -602,7 +602,7 @@ function SkillsContent({ children }: { children: ReactNode }) {
 
 function Skill({ children }: { children: ReactNode }) {
   return (
-    <div className="border-1 flex flex-row flex-wrap items-center gap-2 gap-y-1 rounded-xl border-dashed border-white/50 bg-gradient-to-br from-black/15 via-black/10 to-black/15 p-2.5 px-4 md:py-3  text-xs md:text-xs font-mono">
+    <div className="-mx-5 md:-mx-0 border-1 flex flex-row flex-wrap items-center gap-1.5 md:gap-2 gap-y-1 rounded-lg md:rounded-xl border-dashed border-white/50 bg-gradient-to-br from-black/15 via-black/10 to-black/15 p-2.5 md:py-3  text-xs md:text-xs font-mono">
       {children}
     </div>
   );
@@ -610,8 +610,8 @@ function Skill({ children }: { children: ReactNode }) {
 
 function SkillDomain({ id, name = id }: { id: string; name?: string }) {
   return (
-    <div className="flex flex-row items-center gap-2 rounded-md bg-black/20 px-1.5 py-1 pr-3.5 text-xs -my-0.5">
-      <img src={`/domains/${id}.png`} className="size-4" />
+    <div className="flex flex-row items-center gap-2 rounded-md bg-black/20 px-1.5 py-1  md:pr-3 text-xs -my-0.5">
+      <img src={`/domains/${id}.png`} className="size-3 md:size-4" />
       <span className="title-case"> {name}</span>
     </div>
   );
@@ -619,7 +619,7 @@ function SkillDomain({ id, name = id }: { id: string; name?: string }) {
 
 function SkillTarget({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-row items-center gap-2 rounded-md bg-black/20 px-2 py-1 text-xs -my-0.5">
+    <div className="flex flex-row items-center gap-2 rounded-md bg-black/20 px-1.5 md:px-2 py-1 text-xs -my-0.5">
       <span className="title-case"> {children}</span>
     </div>
   );
