@@ -182,7 +182,7 @@ export function WaitlistForm({compact = false}: {compact?: boolean}) {
   // No width measuring needed; rely on view transitions to morph layout
 
   return (
-    <div className="inline-flex flex-col items-center">
+    <div className="inline-flex flex-col items-center ">
       <form
         ref={containerRef}
         onSubmit={onSubmit}
@@ -207,14 +207,14 @@ export function WaitlistForm({compact = false}: {compact?: boolean}) {
               <span className="text-sm text-white sm:text-base">You’re on the list!</span>
             </div>
           ) : (
-            <div className="vt-waitlist-content flex items-center gap-2 px-1">
+            <div className="vt-waitlist-content flex items-center gap-2 px-1 " >
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="user@domain.com"
                 aria-label="Email address"
-                className="min-w-0 flex-1 rounded-full bg-transparent md:px-3 px-1 py-3 text-black/95 placeholder-black/40 outline-none md:text-base"
+                className="min-w-0 w-full flex-1 rounded-full bg-transparent md:px-3 px-1  text-black/95 placeholder-black/40 outline-none md:text-base "
                 disabled={status === 'loading'}
                 required
               />
