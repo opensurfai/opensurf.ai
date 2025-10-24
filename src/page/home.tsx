@@ -42,13 +42,15 @@ export function HomePage() {
               <span>for AI agents </span>
             </div>
             <div className="text-xl md:text-2xl text-shadow-lg text-center text-balance leading-tight md:leading-normal">
-              Local agents with global working memory. <br className="hidden md:block"/> 
+              Local agents with global working memory.{" "}
+              <br className="hidden md:block" />
               Browser automation at superhuman speed.
             </div>
           </div>
           <div className="flex flex-col w-full items-center gap-4 ">
             <div className="md:text-xl text-shadow-sm text-balance text-center">
-              Ready to drop in? <br className="block md:hidden"/>OpenSurf is <strong>coming soon</strong>.
+              Ready to drop in? <br className="block md:hidden" />
+              OpenSurf is <strong>coming soon</strong>.
             </div>
             <div className="group relative flex w-full flex-col items-center gap-4 pt-4 ">
               <WaitlistForm />
@@ -63,7 +65,48 @@ export function HomePage() {
 
       <Section>
         <SectionContent className="grid w-full grid-cols-1 items-center gap-1 md:grid-cols-2 lg:grid-cols-4 p-0">
-          <FeatureCard className="rounded-t-3xl md:rounded-t-none lg:rounded-l-3xl md:rounded-tl-3xl">
+          <SectionCard className="lg:col-span-4 col-span-1 md:col-span-2 md:py-10 md:py-16 rounded-b-none via-white/10">
+            <SectionTitle className="xl:text-2xl md:text-xl text-xl md:text-center font-semibold text-balance leading-tight md:leading-normal">
+Run self-healing agentic browser tasks locally and collaboratively, with less model overhead.
+</SectionTitle>
+            <div className="grid grid-cols-1 md:grid-cols-3  gap-2 md:gap-4 w-full">
+              <StatCard
+                stat="20x"
+                prefix="Up to"
+                title="Faster automations"
+                footer="Runs locally. Less reasoning. Fewer model round trips"
+                className="bg-fuchsia-500/50"
+              />
+              <StatCard
+                stat="90%"
+                title={
+                  <div>
+                    Lower
+                    <br />
+                    cost
+                  </div>
+                }
+                footer="Minimal inference. Reused skills memory and workflows."
+                className="bg-sky-500/50"
+              />
+              <StatCard
+                stat="99%"
+                title="Workflow reliability"
+                footer="Self-healing. Authenticated. Avoid cloud-browser limitations."
+                className="bg-violet-500/50"
+              />
+            </div>
+
+            <div className="flex flex-row items-center justify-center md:w-3/4 gap-12 text-sm w-full ">
+              <div className="text-center text-xs text-balance md:-my-2  md:-mb-8 w-full leading-3.5 md:leading-tight ">
+                Benchmarks based on internal tests comparing OpenSurf agent
+                execution to traditional reasoning-driven browser loops, and
+                cached cloud-browser automation scripts. Detailed comparison
+                charts coming soon.
+              </div>
+            </div>
+          </SectionCard>
+          <FeatureCard className="rounded-t-none  md:rounded-t-none lg:rounded-bl-3xl">
             <FeatureTitle>A living skills layer</FeatureTitle>
             <FeatureContent>
               Reusable “how-to” memories for interacting with any website. From
@@ -84,7 +127,7 @@ export function HomePage() {
               contribution is signed, versioned, and auditable.
             </FeatureContent>
           </FeatureCard>
-          <FeatureCard className="rounded-b-3xl md:rounded-b-none lg:rounded-r-3xl md:rounded-br-3xl">
+          <FeatureCard className="rounded-b-3xl md:rounded-b-none  md:rounded-br-3xl">
             <FeatureTitle>Universal</FeatureTitle>
             <FeatureContent>
               Works with any LLM, framework, or orchestration stack. Agents gain
@@ -208,7 +251,9 @@ export function HomePage() {
                 <h2 className="text-2xl font-bold md:text-5xl flex flex-row flex-wrap items-center leading-tight   ">
                   <span>The Open Agentic</span> <span>Web Manifesto</span>
                 </h2>
-                <span className="text-[60px] md:text-[100px] -mr-6 md:-mr-0">✊</span>
+                <span className="text-[60px] md:text-[100px] -mr-6 md:-mr-0">
+                  ✊
+                </span>
               </div>
               <div className="col-span-3 flex flex-col gap-4 text-sm md:text-base">
                 <strong>The web was built for people, not machines.</strong>
@@ -269,7 +314,9 @@ export function HomePage() {
                 <GroupContent>Integrate with existing workflows.</GroupContent>
               </HowCard>
               <HowCard icon={<BrowserIcon />} className="bg-teal-500/15">
-                <GroupTitle className="text-base">Universal Browser Client</GroupTitle>
+                <GroupTitle className="text-base">
+                  Universal Browser Client
+                </GroupTitle>
                 <GroupContent>
                   Playwright, Cloud browsers, Mobile SDK
                 </GroupContent>
@@ -427,33 +474,40 @@ function FeatureCard({
   );
 }
 
-function StatText({
+function StatCard({
   stat,
   title,
+  prefix,
   footer,
   className,
 }: {
   stat: ReactNode;
   title: ReactNode;
+  prefix?: ReactNode;
   footer?: ReactNode;
   className?: string;
 }) {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-1 p-4 border-2 border-white/10 bg-white/10 p-8 md:py-8 md:pr-6 shadow-sm backdrop-blur-xl rounded-3xl w-full align-text-bottom",
+        "flex h-28 md:h-auto flex-col items-center justify-center gap-1 md:gap-2 border-2 border-white/10 bg-white/10 p-4 md:p-8  shadow-sm backdrop-blur-xl rounded-lg md:rounded-3xl w-full align-text-bottom",
         className
       )}
     >
-      <div className=" flex flex-row gap-4 items-end">
-        <div className="text-6xl font-bold leading-none align-text-bottom min-w-30 text-right">
+      {prefix && (
+        <span className="text-xs uppercase opacity-75  -mb-2">{prefix}</span>
+      )}
+      <div className=" flex flex-row gap-2 md:gap-4 items-center">
+        <div className="text-5xl md:text-6xl font-bold leading-none align-text-bottom  text-right">
           {stat}
         </div>
-        <div className="pb-1.5 text-lg font-medium text-balance w-min leading-none align-text-bottom min-w-30">
+        <div className="pt-2 md:pt-3 text-sm md:text-base font-medium text-balance w-min leading-4 md:leading-4.5 align-text-bottom  flex flex-col">
           {title}
         </div>
       </div>
-      <div className="text-center text-sm text-balance">{footer}</div>
+      <div className="text-center text-sm text-balance leading-tight">
+        {footer}
+      </div>
     </div>
   );
 }
