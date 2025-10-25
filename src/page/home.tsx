@@ -42,13 +42,15 @@ export function HomePage() {
               <span>for AI agents </span>
             </div>
             <div className="text-xl md:text-2xl text-shadow-lg text-center text-balance leading-tight md:leading-normal">
-              Local agents with global working memory. <br className="hidden md:block"/> 
+              Local agents with global working memory.{" "}
+              <br className="hidden md:block" />
               Browser automation at superhuman speed.
             </div>
           </div>
           <div className="flex flex-col w-full items-center gap-4 ">
             <div className="md:text-xl text-shadow-sm text-balance text-center">
-              Ready to drop in? <br className="block md:hidden"/>OpenSurf is <strong>coming soon</strong>.
+              Ready to drop in? <br className="block md:hidden" />
+              OpenSurf is <strong>coming soon</strong>.
             </div>
             <div className="group relative flex w-full flex-col items-center gap-4 pt-4 ">
               <WaitlistForm />
@@ -183,7 +185,7 @@ export function HomePage() {
                 </GroupContent>
               </Group>
               <Group>
-                <GroupTitle>🔐 Secure & Private</GroupTitle>
+                <GroupTitle>🔐 Secure and private</GroupTitle>
                 <GroupContent>
                   <p>
                     Your credentials and personal data never leave your device.
@@ -208,7 +210,9 @@ export function HomePage() {
                 <h2 className="text-2xl font-bold md:text-5xl flex flex-row flex-wrap items-center leading-tight   ">
                   <span>The Open Agentic</span> <span>Web Manifesto</span>
                 </h2>
-                <span className="text-[60px] md:text-[100px] -mr-6 md:-mr-0">✊</span>
+                <span className="text-[60px] md:text-[100px] -mr-6 md:-mr-0">
+                  ✊
+                </span>
               </div>
               <div className="col-span-3 flex flex-col gap-4 text-sm md:text-base">
                 <strong>The web was built for people, not machines.</strong>
@@ -269,7 +273,9 @@ export function HomePage() {
                 <GroupContent>Integrate with existing workflows.</GroupContent>
               </HowCard>
               <HowCard icon={<BrowserIcon />} className="bg-teal-500/15">
-                <GroupTitle className="text-base">Universal Browser Client</GroupTitle>
+                <GroupTitle className="text-base">
+                  Universal Browser Client
+                </GroupTitle>
                 <GroupContent>
                   Playwright, Cloud browsers, Mobile SDK
                 </GroupContent>
