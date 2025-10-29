@@ -29,7 +29,7 @@ export function HomePage() {
         )}
         ref={ref}
       >
-        <div className="md:rounded-4xl md:my-12 relative flex w-full flex-col items-center gap-8 md:gap-12  overflow-hidden p-4 backdrop-blur-md md:border-2 md:border-white/10 md:bg-gradient-to-r md:from-white/10 md:via-black/10 md:to-white/10 md:pb-16 md:pt-16 md:shadow-xl">
+        <div className="relative md:rounded-4xl md:my-12 relative flex w-full flex-col items-center gap-8 md:gap-12  overflow-hidden p-4 backdrop-blur-md md:border-2 md:border-white/10 md:bg-gradient-to-r md:from-white/10 md:via-black/10 md:to-white/10 md:pb-16 md:pt-16 md:shadow-xl">
           <img
             src={logo}
             className="z-1 pointer-events-none h-32 max-h-32 md:h-40 md:max-h-40 drop-shadow-xl"
@@ -60,6 +60,7 @@ export function HomePage() {
               </div>
             </div>
           </div>
+          <SocialIcons className="md:absolute md:top-6 md:right-6 md:mb-0 mb-4 " />
         </div>
       </div>
 
@@ -67,32 +68,26 @@ export function HomePage() {
         <SectionContent className="grid w-full grid-cols-1 items-center gap-1 md:grid-cols-2 lg:grid-cols-4 p-0">
           <SectionCard className="lg:col-span-4 col-span-1 md:col-span-2 md:py-10 md:py-16 rounded-b-none via-white/10">
             <SectionTitle className="xl:text-2xl md:text-xl text-xl md:text-center font-semibold text-balance leading-tight md:leading-normal">
-Run self-healing agentic browser tasks locally and collaboratively, with less model overhead.
-</SectionTitle>
+              Run self-healing agentic browser tasks locally and
+              collaboratively, with less model overhead.
+            </SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-3  gap-2 md:gap-4 w-full">
               <StatCard
                 stat="20x"
-                prefix="Up to"
-                title="Faster automations"
-                footer="Runs locally. Less reasoning. Fewer model round trips"
+                title="Faster"
+                footer="Automations run locally. Less reasoning. Fewer model round trips."
                 className="bg-fuchsia-500/50"
               />
               <StatCard
                 stat="90%"
-                title={
-                  <div>
-                    Lower
-                    <br />
-                    cost
-                  </div>
-                }
-                footer="Minimal inference. Reused skills memory and workflows."
+                title="Cheaper"
+                footer="Minimal inference, less tokens. Reused skills memory and workflows."
                 className="bg-sky-500/50"
               />
               <StatCard
                 stat="99%"
-                title="Workflow reliability"
-                footer="Self-healing. Authenticated. Avoid cloud-browser limitations."
+                title="Reliability"
+                footer="Self-healing workflows. Authenticated. Avoid cloud-browser limitations."
                 className="bg-violet-500/50"
               />
             </div>
@@ -162,11 +157,11 @@ Run self-healing agentic browser tasks locally and collaboratively, with less mo
               <Skills title="Workplace">
                 <Skill>
                   Give <SkillTarget>@Gary</SkillTarget> admin access on
-                  <SkillDomain id="cloudflare" />
+                  {" "}<SkillDomain id="cloudflare" />
                 </Skill>
                 <Skill>
                   Get a list of <SkillTarget>@Gary's</SkillTarget> open PRs on
-                  <SkillDomain id="github" />
+                  {" "}<SkillDomain id="github" />
                 </Skill>
                 <Skill>
                   Remove user <SkillTarget>@Gary</SkillTarget> from{" "}
@@ -184,8 +179,7 @@ Run self-healing agentic browser tasks locally and collaboratively, with less mo
                 </Skill>
                 <Skill>
                   How many <SkillDomain id="sentry" /> errors in last 24 hours
-                  for
-                  <SkillTarget>@Project X</SkillTarget>
+                  for {" "}<SkillTarget>@Project X</SkillTarget>?
                 </Skill>
               </Skills>
             </div>
@@ -412,9 +406,9 @@ Run self-healing agentic browser tasks locally and collaboratively, with less mo
   );
 }
 
-function SocialIcons() {
+function SocialIcons({ className }: { className?: string }) {
   return (
-    <div className="e flex flex-row items-center gap-4">
+    <div className={cn("flex flex-row items-center gap-4", className)}>
       <SocialLink href="https://github.com/opensurfai">
         <GithubIcon />
       </SocialLink>
@@ -434,7 +428,7 @@ function SocialIcons() {
 function SocialLink({ children, href }: { children: ReactNode; href: string }) {
   return (
     <div
-      className="flex flex-row items-center gap-2 [&_svg]:size-5 [&_svg]:fill-white/50 [&_svg]:hover:fill-white"
+      className="p-2 -m-2 flex flex-row items-center rounded-full  gap-2 [&_svg]:size-5 [&_svg]:fill-white/80 [&_svg]:hover:fill-white hover:bg-black/10"
       onClick={() => window.open(href, "_blank")}
     >
       {children}
@@ -482,7 +476,7 @@ function StatCard({
   className,
 }: {
   stat: ReactNode;
-  title: ReactNode;
+  title?: ReactNode;
   prefix?: ReactNode;
   footer?: ReactNode;
   className?: string;
@@ -490,22 +484,17 @@ function StatCard({
   return (
     <div
       className={cn(
-        "flex h-28 md:h-auto flex-col items-center justify-center gap-1 md:gap-2 border-2 border-white/10 bg-white/10 p-4 md:p-8  shadow-sm backdrop-blur-xl rounded-lg md:rounded-3xl w-full align-text-bottom",
+        "flex md:h-auto flex-col items-center justify-center gap-1 md:gap-2 border-2 border-white/10 bg-white/10 p-6 md:p-10  shadow-sm backdrop-blur-xl rounded-lg md:rounded-3xl w-full align-text-bottom",
         className
       )}
     >
       {prefix && (
-        <span className="text-xs uppercase opacity-75  -mb-2">{prefix}</span>
+        <span className="text-xs uppercase opacity-75  -mb-2 ">{prefix}</span>
       )}
-      <div className=" flex flex-row gap-2 md:gap-4 items-center">
-        <div className="text-5xl md:text-6xl font-bold leading-none align-text-bottom  text-right">
-          {stat}
-        </div>
-        <div className="pt-2 md:pt-3 text-sm md:text-base font-medium text-balance w-min leading-4 md:leading-4.5 align-text-bottom  flex flex-col">
-          {title}
-        </div>
+      <div className=" flex flex-row gap-2 items-center font-bold text-4xl leading-none">
+        {stat} {title ?? ""}
       </div>
-      <div className="text-center text-sm text-balance leading-tight">
+      <div className="text-center text-sm text-balance  max-w-sm leading-tight">
         {footer}
       </div>
     </div>
