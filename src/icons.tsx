@@ -12,6 +12,7 @@ export const ChromeIcon = () => (
     />
   </svg>
 );
+
 export const MCPIcon = () => (
   <svg
     width="64"

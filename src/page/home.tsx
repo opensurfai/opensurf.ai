@@ -48,7 +48,7 @@ export function HomePage() {
               Ready to drop in? <br className="block md:hidden" />
               OpenSurf is <strong>coming soon</strong>.
             </div>
-            <div className="group relative flex w-full flex-col items-center gap-4 pt-4 ">
+            <div className="group relative flex flex-col items-center gap-4 pt-4 ">
               <WaitlistForm />
 
               <div className="absolute -bottom-6 -right-28 z-40 flex w-fit flex-row items-center gap-2 rounded-full rounded-tl-none bg-gray-700 p-2 px-4 pl-2 text-sm opacity-0 drop-shadow-xl backdrop-blur-lg transition-all duration-300 group-hover:opacity-100">
@@ -106,45 +106,46 @@ export function HomePage() {
             <div className="flex w-full flex-col gap-4 md:gap-8 ">
               <Skills title="Everyday">
                 <Skill>
-                  Get the status of my <SkillDomain id="spotify" />
+                  Get the status of my{" "}
+                  <SkillDomain id="spotify" name="Spotify" />
                   plan
                 </Skill>
 
                 <Skill>
-                  Check status of my <SkillDomain id="amazon" />
+                  Check status of my <SkillDomain id="amazon" name="Amazon" />
                   delivery
                 </Skill>
                 <Skill>
-                  Pause my <SkillDomain id="hellofresh" name="Hello Fresh" />{" "}
+                  Pause my <SkillDomain id="hellofresh" name="HelloFresh" />{" "}
                   subscription
                 </Skill>
               </Skills>
               <Skills title="Workplace">
                 <Skill>
                   Give <SkillTarget>@Gary</SkillTarget> admin access on
-                  <SkillDomain id="cloudflare" />
+                  <SkillDomain id="cloudflare" name="Cloudflare" />
                 </Skill>
                 <Skill>
                   Get a list of <SkillTarget>@Gary's</SkillTarget> open PRs on
-                  <SkillDomain id="github" />
+                  <SkillDomain id="github" name="GitHub" />
                 </Skill>
                 <Skill>
                   Remove user <SkillTarget>@Gary</SkillTarget> from{" "}
-                  <SkillDomain id="google" name="Google workspace" />
+                  <SkillDomain id="google" name="Google Workspace" />
                 </Skill>
               </Skills>
               <Skills title="Devops">
                 <Skill>
                   Rotate API keys for <SkillTarget>@Project X</SkillTarget> in{" "}
-                  <SkillDomain id="aws" />
+                  <SkillDomain id="aws" name="AWS" />
                 </Skill>
                 <Skill>
                   Trigger a production deployment in{" "}
-                  <SkillDomain id="cloudflare" /> Pages
+                  <SkillDomain id="cloudflare" name="Cloudflare" /> Pages
                 </Skill>
                 <Skill>
-                  How many <SkillDomain id="sentry" /> errors in last 24 hours
-                  for
+                  How many <SkillDomain id="sentry" name="Sentry" /> errors in
+                  last 24 hours for
                   <SkillTarget>@Project X</SkillTarget>
                 </Skill>
               </Skills>
@@ -201,7 +202,7 @@ export function HomePage() {
             <div className="grid grid-cols-1 gap-2 md:grid-cols-5 gap-2 md:gap-8 w-full">
               <div className="col-span-2 flex w-full flex-row items-center justify-between md:justify-start gap-2 md:flex-col md:items-start md:gap-4">
                 <h2 className="text-2xl font-bold md:text-5xl flex flex-row flex-wrap items-center leading-tight   ">
-                  Our Principles
+                  Our principles
                 </h2>
               </div>
               <div className="col-span-3 flex flex-col gap-4 text-sm md:text-base">
@@ -284,10 +285,7 @@ export function HomePage() {
             </div>
 
             <div className="flex w-full max-w-2xl flex-col items-start gap-2">
-              <p>
-                We're Dom and David — two Aussies who've spent the last nine
-                months building OpenSurf.
-              </p>
+              <p>We're Dom and David, founders of OpenSurf.</p>
               <p>
                 Parts of what you’ve read are already working. The rest is
                 taking shape fast. We know this idea is bigger than the two of
@@ -326,7 +324,7 @@ export function HomePage() {
       </Section>
       <Section className="py-12">
         <SectionCard className="rounded-xl border-none bg-transparent pb-2 pt-0 shadow-none backdrop-blur-none group-hover:shadow-none">
-          <div className="flex w-full flex-col-reverse md:flex-row items-center justify-between gap-2 opacity-75 md:flex-row md:gap-4 text-sm gap-y-6">
+          <div className="flex w-full flex-col-reverse items-center justify-between gap-2 opacity-75 md:flex-row md:gap-4 text-sm gap-y-6">
             <a
               href="https://estiistudios.com"
               target="_blank"
