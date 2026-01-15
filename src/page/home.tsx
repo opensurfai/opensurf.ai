@@ -36,15 +36,11 @@ export function HomePage() {
             alt="logo"
           />
           <div className="-mt-2 flex flex-col items-center gap-0 text-center md:text-left ">
-            <div className="mb-4 text-3xl leading-3xl md:text-4xl font-bold text-shadow-sm  flex-row flex flex-wrap items-center justify-center gap-1 ">
-              <span>The web skills layer</span>
-              <span> </span>
-              <span>for AI agents </span>
+            <div className="text-center mb-4 text-3xl leading-3xl md:text-4xl font-bold text-shadow-sm flex-row flex flex-wrap items-center justify-center gap-1 text-balance">
+              Automation you can stop thinking about
             </div>
             <div className="text-xl md:text-2xl text-shadow-lg text-center text-balance leading-tight md:leading-normal">
-              Local agents with global working memory.{" "}
-              <br className="hidden md:block" />
-              Browser automation at superhuman speed.
+              Infrastructure for reliable, user-controlled web agents
             </div>
           </div>
           <div className="flex flex-col w-full items-center gap-4 ">
@@ -66,31 +62,35 @@ export function HomePage() {
       <Section>
         <SectionContent className="grid w-full grid-cols-1 items-center gap-1 md:grid-cols-2 lg:grid-cols-4 p-0">
           <FeatureCard className="rounded-t-3xl md:rounded-t-none lg:rounded-l-3xl md:rounded-tl-3xl">
-            <FeatureTitle>A living skills layer</FeatureTitle>
+            <FeatureTitle>A logical map of the Web</FeatureTitle>
             <FeatureContent>
-              Reusable “how-to” memories for interacting with any website. From
-              booking systems to dashboards to data portals.
+              A structured representation of how real websites work. Execution
+              is predictable, observable, and runs without models in the control
+              loop.
             </FeatureContent>
           </FeatureCard>
           <FeatureCard className="md:rounded-tr-3xl lg:rounded-tr-none">
-            <FeatureTitle>Self-healing and adaptive</FeatureTitle>
+            <FeatureTitle>Repair without rewrites</FeatureTitle>
             <FeatureContent>
-              When a site changes, the layer updates automatically. Every
-              connected agent inherits the fix instantly.
+              When sites change, OpenSurf surgically repairs skills and
+              continues execution. Fixes are explicit, auditable, and shared
+              amongst agents.
             </FeatureContent>
           </FeatureCard>
           <FeatureCard className="md:rounded-bl-3xl lg:rounded-bl-none">
-            <FeatureTitle>Open and federated</FeatureTitle>
+            <FeatureTitle>Open by design</FeatureTitle>
             <FeatureContent>
-              Anyone can inspect, extend, or mirror the layer. Every
-              contribution is signed, versioned, and auditable.
+              Skills are just data: portable, inspectable, versioned, and
+              auditable. Anyone can extend, fork, or self-host without vendor
+              lock-in.
             </FeatureContent>
           </FeatureCard>
           <FeatureCard className="rounded-b-3xl md:rounded-b-none lg:rounded-r-3xl md:rounded-br-3xl">
-            <FeatureTitle>Universal</FeatureTitle>
+            <FeatureTitle>Works with your stack</FeatureTitle>
             <FeatureContent>
-              Works with any LLM, framework, or orchestration stack. Agents gain
-              web intuition without losing privacy or control.
+              Compatible with any LLM, framework, or orchestration layer.
+              Reusable web structure without giving up privacy, control or
+              locality.
             </FeatureContent>
           </FeatureCard>
         </SectionContent>
@@ -153,48 +153,40 @@ export function HomePage() {
       </Section>
       <Section>
         <SectionCard>
-          <SectionTitle>Why it's different</SectionTitle>
+          <SectionTitle>Built for real-world automation</SectionTitle>
           <SectionContent className="gap-4 md:gap-6">
             <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-3">
               <Group>
-                <GroupTitle>⚡ Reactive and semantic</GroupTitle>
+                <GroupTitle>⚡ Declarative, not scripted</GroupTitle>
                 <GroupContent>
+                  <p>OpenSurf encodes web structure as data, not scripts.</p>
                   <p>
-                    Forget brittle scripts. OpenSurf introduces an entirely new
-                    kind of automation — a semantic layer for the web.
-                  </p>
-                  <p>
-                    Agents perceive structure and intent, not pixels or
-                    selectors, performing tasks at super-human speed and
-                    adapting instantly when the web changes.
+                    Automation reacts to known signals instead of re-discovering
+                    the UI on every step.
                   </p>
                 </GroupContent>
               </Group>
               <Group>
-                <GroupTitle>🤝 Collaborative and transparent</GroupTitle>
+                <GroupTitle>🤝 Human-in-the-loop by design</GroupTitle>
                 <GroupContent>
                   <p>
-                    Agents don’t replace users — they work alongside them.
-                    OpenSurf lets agents surface interruptions, confirm intent,
-                    and learn directly from human actions.
+                    OpenSurf surfaces uncertainty, asks for confirmation, and
+                    learns from corrections.
                   </p>
                   <p>
-                    Your guidance becomes shared skill memory, improving every
-                    interaction without giving up control.
+                    Guidance becomes shared skill knowledge, without
+                    surrendering control to an opaque system.
                   </p>
                 </GroupContent>
               </Group>
               <Group>
-                <GroupTitle>🔐 Secure and private</GroupTitle>
+                <GroupTitle>🔐 Local-first and private by default</GroupTitle>
                 <GroupContent>
+                  <p>Credentials and personal data never leave your device.</p>
                   <p>
-                    Your credentials and personal data never leave your device.
-                    OpenSurf runs locally, integrates with your existing
-                    password managers, and keeps every session sandboxed.
-                  </p>
-                  <p>
-                    No cloud logins. No silent exfiltration. Just private
-                    automation under your command.
+                    OpenSurf runs locally, integrates with existing password
+                    managers, and sandboxes every session. No cloud logins or
+                    silent exfiltration.
                   </p>
                 </GroupContent>
               </Group>
@@ -208,38 +200,25 @@ export function HomePage() {
             <div className="grid grid-cols-1 gap-2 md:grid-cols-5 gap-2 md:gap-8 w-full">
               <div className="col-span-2 flex w-full flex-row items-center justify-between md:justify-start gap-2 md:flex-col md:items-start md:gap-4">
                 <h2 className="text-2xl font-bold md:text-5xl flex flex-row flex-wrap items-center leading-tight   ">
-                  <span>The Open Agentic</span> <span>Web Manifesto</span>
+                  Our Principles
                 </h2>
-                <span className="text-[60px] md:text-[100px] -mr-6 md:-mr-0">
-                  ✊
-                </span>
               </div>
               <div className="col-span-3 flex flex-col gap-4 text-sm md:text-base">
-                <strong>The web was built for people, not machines.</strong>
-                <span>
-                  Today it is cluttered, closed, and hostile to both users and
-                  automation.
-                </span>
-                <span>Agents stall. Scripts break. Privacy disappears. </span>
-                <strong>We exist to fix that.</strong>
-                <ul>
-                  <li>We believe in an open agentic web.</li>
-                  <li>Where humans and AI collaborate safely.</li>
-                  <li>Where knowledge is shared, not hoarded.</li>
-                  <li>And where privacy and control belong to the user.</li>
-                </ul>
-                <ul>
-                  <li>We will never sell your data.</li>
-                  <li>We will always work in service of your privacy.</li>
+                <ul className="list-inside list-disc flex flex-col gap-2">
                   <li>
-                    We will earn our revenue from the value we create — not from
-                    your information.
+                    Deterministic execution over probabilistic control loops
                   </li>
+                  <li>Human oversight by default (interruptible, auditable)</li>
+                  <li>Local-first security (credentials stay on device)</li>
+                  <li>
+                    Open skills as data (inspectable, versioned, forkable)
+                  </li>
+                  <li>Revenue from value delivered, not data extraction</li>
                 </ul>
                 <strong>
-                  The web should serve you, and those you trust to serve you.
+                  The web should be operable by software without surrendering
+                  user control.
                 </strong>
-                <strong>Not the other way around.</strong>
               </div>
             </div>
           </SectionContent>
@@ -257,11 +236,11 @@ export function HomePage() {
             <ol className="-mx-4 md:-mx-0 flex list-inside list-decimal flex-col gap-6 bg-gradient-to-br from-black/25 to-black/25 via-black/15 backdrop-blur-xl border-white/20 border-1 p-6 md:p-8 font-mono text-sm rounded-xl shadow-md">
               <li>Connect your agent through the OpenSurf API or SDK.</li>
               <li>
-                Query the open skills memory for a task — search, fill,
+                Query the skills layer for a goal — sign in, search, cancel,
                 purchase, extract.
               </li>
               <li>Execute safely inside a local or hosted browser sandbox.</li>
-              <li>Contribute improvements back to the layer.</li>
+              <li>Improve and share skills as you go.</li>
             </ol>
             <div className="flex flex-col gap-2">
               <HowCard icon={<ChromeIcon />} className="bg-sky-400/15">
@@ -283,7 +262,7 @@ export function HomePage() {
             </div>
           </SectionContent>
           <div className="text-center text-xl text-balance leading-tight">
-            The open skills layer learns, heals, and grows.
+            The skills layer learns, improves, and compounds.
           </div>
         </SectionCard>
       </Section>
@@ -294,7 +273,7 @@ export function HomePage() {
             <div className="min-h-48 min-w-48">
               <img
                 src="/dom_and_dave.png"
-                alt="Dom and Dave"
+                alt="Dom and David"
                 className="max-h-48 rounded-full"
               />
 
@@ -305,7 +284,7 @@ export function HomePage() {
 
             <div className="flex w-full max-w-2xl flex-col items-start gap-2">
               <p>
-                We're Dom and Dave — two Aussies who've spent the last nine
+                We're Dom and David — two Aussies who've spent the last nine
                 months building OpenSurf.
               </p>
               <p>
@@ -383,7 +362,7 @@ function SocialIcons() {
       <SocialLink href="https://bsky.app/profile/opensurf.ai">
         <BlueskyIcon />
       </SocialLink>
-      <SocialLink href="https://x.com/opensurfai">
+      <SocialLink href="https://linkedin.com/company/opensurf">
         <LinkedInIcon />
       </SocialLink>
     </div>
@@ -392,12 +371,14 @@ function SocialIcons() {
 
 function SocialLink({ children, href }: { children: ReactNode; href: string }) {
   return (
-    <div
+    <a
+      target="_blank"
+      rel="noreferrer"
+      href={href}
       className="flex flex-row items-center gap-2 [&_svg]:size-5 [&_svg]:fill-white/50 [&_svg]:hover:fill-white"
-      onClick={() => window.open(href, "_blank")}
     >
       {children}
-    </div>
+    </a>
   );
 }
 function FeatureTitle({ children }: { children: ReactNode }) {
