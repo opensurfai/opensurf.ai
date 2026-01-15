@@ -56,6 +56,7 @@ export function HomePage() {
               </div>
             </div>
           </div>
+          <SocialIcons className="md:absolute md:top-6 md:right-6 md:mb-0 mb-4 " />
         </div>
       </div>
 
@@ -350,9 +351,9 @@ export function HomePage() {
   );
 }
 
-function SocialIcons() {
+function SocialIcons({ className }: { className?: string }) {
   return (
-    <div className="e flex flex-row items-center gap-4">
+    <div className={cn("flex flex-row items-center gap-4", className)}>
       <SocialLink href="https://github.com/opensurfai">
         <GithubIcon />
       </SocialLink>
@@ -414,33 +415,35 @@ function FeatureCard({
   );
 }
 
-function StatText({
+export function StatCard({
   stat,
   title,
+  prefix,
   footer,
   className,
 }: {
   stat: ReactNode;
-  title: ReactNode;
+  title?: ReactNode;
+  prefix?: ReactNode;
   footer?: ReactNode;
   className?: string;
 }) {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-1 p-4 border-2 border-white/10 bg-white/10 p-8 md:py-8 md:pr-6 shadow-sm backdrop-blur-xl rounded-3xl w-full align-text-bottom",
+        "flex md:h-auto flex-col items-center justify-center gap-1 md:gap-2 border-2 border-white/10 bg-white/10 p-6 md:p-10  shadow-sm backdrop-blur-xl rounded-lg md:rounded-3xl w-full align-text-bottom",
         className
       )}
     >
-      <div className=" flex flex-row gap-4 items-end">
-        <div className="text-6xl font-bold leading-none align-text-bottom min-w-30 text-right">
-          {stat}
-        </div>
-        <div className="pb-1.5 text-lg font-medium text-balance w-min leading-none align-text-bottom min-w-30">
-          {title}
-        </div>
+      {prefix && (
+        <span className="text-xs uppercase opacity-75  -mb-2 ">{prefix}</span>
+      )}
+      <div className=" flex flex-row gap-2 items-center font-bold text-4xl leading-none">
+        {stat} {title ?? ""}
       </div>
-      <div className="text-center text-sm text-balance">{footer}</div>
+      <div className="text-center text-sm text-balance  max-w-sm leading-tight">
+        {footer}
+      </div>
     </div>
   );
 }
